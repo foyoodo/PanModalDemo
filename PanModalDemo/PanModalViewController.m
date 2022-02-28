@@ -235,6 +235,9 @@ static const NSTimeInterval kAnimationDuration = 0.15;
         _containerView = [[UIView alloc] init];
         _containerView.backgroundColor = [UIColor blackColor];
         _containerView.layer.cornerRadius = 15;
+        if (@available(iOS 11.0, *)) {
+            _containerView.layer.maskedCorners = kCALayerMinXMinYCorner | kCALayerMaxXMinYCorner;
+        }
         _containerView.layer.masksToBounds = YES;
 
         [_containerView addGestureRecognizer:self.panGestureRecognizer];
